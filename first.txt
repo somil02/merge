@@ -1,1 +1,29 @@
-hi world this is planet earth and there is no chance of survival.
+#include <iostream>
+using namespace std;
+
+bool isPrime(int num) {
+    // Handle edge cases
+    if (num <= 1) return false; // 0 and 1 are not prime numbers
+    if (num == 2) return true;  // 2 is the only even prime number
+
+    // Check divisors from 2 to sqrt(num)
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false; // If divisible, not a prime number
+    }
+
+    return true; // Prime if no divisors found
+}
+
+int main() {
+    int number;
+    cout << "Enter a number to check if it is prime: ";
+    cin >> number;
+
+    if (isPrime(number)) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is not a prime number." << endl;
+    }
+
+    return 0;
+}
